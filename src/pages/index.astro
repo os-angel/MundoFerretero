@@ -13,11 +13,10 @@ import WhatsAppButton from '../components/WhatsAppButton.astro';
 // Load i18n and product data
 import esStrings from '../data/i18n/es.json';
 import enStrings from '../data/i18n/en.json';
-import tzuStrings from '../data/i18n/tzu.json';
 import productsData from '../data/products.json';
 
 const lang = 'es';
-const t = lang === 'en' ? enStrings : lang === 'tzu' ? tzuStrings : esStrings;
+const t = lang === 'en' ? enStrings : esStrings;
 const categories = productsData.categories;
 ---
 

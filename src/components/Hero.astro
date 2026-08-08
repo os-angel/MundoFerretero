@@ -6,6 +6,11 @@ interface Props {
 const { t } = Astro.props;
 const waMsg = encodeURIComponent(t.common.whatsapp_msg);
 const waUrl = `https://wa.me/${t.common.wa_number}?text=${waMsg}`;
+const cementSlides = [
+  { name: 'Cemento UGC Progreso', image: '/images/products/cemento-ugc.png', alt: 'Saco de Cemento UGC Progreso de 42.5 kg' },
+  { name: 'Cemento Obrero', image: '/images/products/cemento-obrero.png', alt: 'Saco de Cemento Obrero de 42.5 kg' },
+  { name: 'Cemento Internacional', image: '/images/products/cemento-internacional.png', alt: 'Saco de Cemento Internacional de 42.5 kg' },
+];
 ---
 
 <section class="hero" aria-label="Mundo Ferretero — Materiales de construcción">
@@ -44,30 +49,81 @@ const waUrl = `https://wa.me/${t.common.wa_number}?text=${waMsg}`;
       </p>
     </div>
 
-    <!-- Right: Image -->
-    <div class="hero-image-wrap" aria-hidden="true">
-      <img
-        src="/images/products/cemento-ugc.png"
-        alt="Cemento UGC Progreso — Mundo Ferretero, Santiago Atitlán"
-        class="hero-image"
-        width="600"
-        height="600"
-        fetchpriority="high"
-        decoding="async"
-        style="object-fit: contain; background-color: #F7F7F5;"
-      />
+    <!-- Right: Cement carousel -->
+    <div class="hero-carousel" role="region" aria-roledescription="carrusel" aria-label="Tipos de cemento disponibles">
+      <div class="carousel-track">
+        {cementSlides.map((slide, index) => (
+          <div class={`carousel-slide ${index === 0 ? 'is-active' : ''}`} aria-hidden={index === 0 ? 'false' : 'true'}>
+            <img
+              src={slide.image}
+              alt={slide.alt}
+              class="hero-image"
+              width="600"
+              height="600"
+              fetchpriority={index === 0 ? 'high' : undefined}
+              loading={index === 0 ? 'eager' : 'lazy'}
+              decoding="async"
+            />
+            <span class="carousel-caption">{slide.name}</span>
+          </div>
+        ))}
+      </div>
+      <div class="carousel-controls">
+        <button class="carousel-arrow" type="button" data-carousel-prev aria-label="Ver cemento anterior">‹</button>
+        <div class="carousel-dots" role="tablist" aria-label="Seleccionar tipo de cemento">
+          {cementSlides.map((slide, index) => (
+            <button class={`carousel-dot ${index === 0 ? 'is-active' : ''}`} type="button" role="tab" aria-label={`Ver ${slide.name}`} aria-selected={index === 0 ? 'true' : 'false'} data-carousel-dot={index}></button>
+          ))}
+        </div>
+        <button class="carousel-arrow" type="button" data-carousel-next aria-label="Ver siguiente cemento">›</button>
+      </div>
     </div>
 
   </div>
 </section>
 
+<script>
+  const carousel = document.querySelector('.hero-carousel');
+  const slides = Array.from(carousel?.querySelectorAll('.carousel-slide') ?? []);
+  const dots = Array.from(carousel?.querySelectorAll<HTMLButtonElement>('[data-carousel-dot]') ?? []);
+  let current = 0;
+  let timer: number | undefined;
+
+  function showSlide(next: number) {
+    current = (next + slides.length) % slides.length;
+    slides.forEach((slide, index) => {
+      const active = index === current;
+      slide.classList.toggle('is-active', active);
+      slide.setAttribute('aria-hidden', String(!active));
+      dots[index]?.classList.toggle('is-active', active);
+      dots[index]?.setAttribute('aria-selected', String(active));
+    });
+  }
+
+  function startRotation() {
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      timer = window.setInterval(() => showSlide(current + 1), 4500);
+    }
+  }
+
+  function resetRotation() {
+    if (timer) window.clearInterval(timer);
+    startRotation();
+  }
+
+  carousel?.querySelector('[data-carousel-prev]')?.addEventListener('click', () => { showSlide(current - 1); resetRotation(); });
+  carousel?.querySelector('[data-carousel-next]')?.addEventListener('click', () => { showSlide(current + 1); resetRotation(); });
+  dots.forEach((dot, index) => dot.addEventListener('click', () => { showSlide(index); resetRotation(); }));
+  carousel?.addEventListener('mouseenter', () => { if (timer) window.clearInterval(timer); });
+  carousel?.addEventListener('mouseleave', startRotation);
+  startRotation();
+</script>
+
 <style>
   .hero {
-    position: relative;
-    background: linear-gradient(115deg, var(--c-blue) 0%, var(--c-blue) 61%, #234566 100%);
+    background: var(--c-blue);
     color: var(--c-white);
-    padding-block: var(--sp-16);
-    overflow: hidden;
+    padding-block: var(--sp-12);
   }
 
   .hero-inner {
@@ -76,9 +132,6 @@ const waUrl = `https://wa.me/${t.common.wa_number}?text=${waMsg}`;
     gap: var(--sp-10);
     align-items: center;
   }
-
-  .hero::after { content: ''; position: absolute; width: 460px; height: 460px; right: -180px; bottom: -285px; border-radius: 50%; background: var(--c-orange); opacity: .9; }
-  .hero-content, .hero-image-wrap { position: relative; z-index: 1; }
 
   .hero-content {
     display: flex;
@@ -118,34 +171,48 @@ const waUrl = `https://wa.me/${t.common.wa_number}?text=${waMsg}`;
     margin-top: var(--sp-2);
   }
 
-  /* Image */
-  .hero-image-wrap {
-    border-radius: 38% 14% 38% 14%;
+  /* Cement carousel */
+  .hero-carousel {
+    border-radius: var(--radius-md);
     overflow: hidden;
     aspect-ratio: 1 / 1;
     max-width: 500px;
     width: 100%;
     margin-inline: auto;
-    border: 8px solid rgba(255,255,255,.12);
-    box-shadow: 18px 18px 0 rgba(221, 113, 37, .9);
+    border: 1px solid rgba(255,255,255,.22);
+    box-shadow: none;
+    background: #f7f7f5;
   }
+
+  .carousel-track { position: relative; width: 100%; height: 100%; }
+  .carousel-slide { position: absolute; inset: 0; display: grid; place-items: center; opacity: 0; transform: translateX(8%); transition: opacity 400ms ease, transform 400ms ease; pointer-events: none; }
+  .carousel-slide.is-active { opacity: 1; transform: translateX(0); pointer-events: auto; }
 
   .hero-image {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
+    background-color: #f7f7f5;
     transition: transform var(--t-slow);
   }
 
-  .hero-image-wrap:hover .hero-image {
+  .carousel-slide:hover .hero-image {
     transform: scale(1.02);
   }
+
+  .carousel-caption { position: absolute; left: .75rem; bottom: .75rem; padding: .3rem .55rem; background: var(--c-blue); color: var(--c-white); font-size: .75rem; font-weight: 700; }
+  .carousel-controls { position: absolute; z-index: 2; left: .85rem; right: .85rem; bottom: .8rem; display: flex; align-items: center; justify-content: space-between; }
+  .carousel-arrow, .carousel-dot { border: 0; cursor: pointer; }
+  .carousel-arrow { width: 30px; height: 30px; border-radius: var(--radius-sm); background: var(--c-white); color: var(--c-blue); font-size: 1.5rem; line-height: 1; }
+  .carousel-dots { display: flex; gap: .4rem; }
+  .carousel-dot { width: 8px; height: 8px; padding: 0; border-radius: 50%; background: rgba(255,255,255,.65); }
+  .carousel-dot.is-active { background: var(--c-orange); }
 
   /* Desktop */
   @media (min-width: 1024px) {
     .hero {
-      padding-block: var(--sp-20);
+      padding-block: var(--sp-16);
     }
 
     .hero-inner {
@@ -157,7 +224,7 @@ const waUrl = `https://wa.me/${t.common.wa_number}?text=${waMsg}`;
       font-size: var(--text-4xl);
     }
 
-    .hero-image-wrap {
+    .hero-carousel {
       max-width: 100%;
       margin-inline: 0;
     }

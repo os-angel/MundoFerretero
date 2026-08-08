@@ -134,19 +134,19 @@ ul, ol {
 }
 
 .section {
-  padding-block: var(--sp-16);
+  padding-block: var(--sp-12);
 }
 
 .section--lg {
-  padding-block: var(--sp-20);
+  padding-block: var(--sp-16);
 }
 
 @media (max-width: 768px) {
   .section {
-    padding-block: var(--sp-12);
+    padding-block: var(--sp-10);
   }
   .section--lg {
-    padding-block: var(--sp-16);
+    padding-block: var(--sp-12);
   }
 }
 

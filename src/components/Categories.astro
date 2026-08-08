@@ -68,112 +68,18 @@ const waUrl = `https://wa.me/${t.common.wa_number}?text=${waMsg}`;
 </section>
 
 <style>
-  .categories { background-color: var(--c-white); }
-
-  .categories-header { margin-bottom: var(--sp-8); max-width: 620px; }
-
-  .categories-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--sp-3);
-  }
-
-  @media (min-width: 430px) {
-    .categories-grid {
-      gap: var(--sp-5);
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .categories-grid {
-      grid-template-columns: repeat(12, 1fr);
-      grid-template-rows: repeat(2, 230px);
-      gap: var(--sp-5);
-    }
-    .category-item:nth-child(1), .category-item:nth-child(4) { grid-column: span 5; }
-    .category-item:nth-child(2), .category-item:nth-child(3), .category-item:nth-child(5), .category-item:nth-child(6) { grid-column: span 7; }
-  }
-
-  .category-item {
-    position: relative;
-    min-height: 210px;
-    background-color: var(--c-blue);
-    border: 0;
-    border-radius: 18px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    isolation: isolate;
-    transition: transform var(--t-base), box-shadow var(--t-base);
-  }
-
-  .category-item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 14px 28px rgba(20, 34, 56, .18);
-  }
-
-  .category-img-wrap {
-    overflow: hidden;
-    position: absolute;
-    inset: 0;
-    aspect-ratio: auto;
-  }
-
-  .category-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    opacity: .72;
-    transition: transform var(--t-slow);
-  }
-
-  .category-item:hover .category-img {
-    transform: scale(1.03);
-  }
-
-  .category-body {
-    position: relative;
-    z-index: 1;
-    padding: var(--sp-5);
-    display: flex;
-    flex-direction: column;
-    gap: var(--sp-1);
-    background: linear-gradient(transparent, rgba(12, 24, 40, .92));
-  }
-
-  .category-name {
-    font-size: var(--text-lg);
-    font-weight: 700;
-    color: var(--c-white);
-    line-height: 1.2;
-  }
-
-  .category-desc {
-    font-size: var(--text-sm);
-    display: none;
-    color: rgba(255,255,255,.78);
-    line-height: 1.55;
-    flex: 1;
-  }
-
-  .category-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--sp-2);
-    font-size: var(--text-sm);
-    font-weight: 700;
-    color: #ffd3ae;
-    margin-top: var(--sp-1);
-    transition: gap var(--t-fast), color var(--t-fast);
-  }
-
-  @media (min-width: 640px) { .category-desc { display: block; } }
-
-  .category-cta:hover,
-  .category-cta:focus-visible {
-    color: var(--c-orange-dark);
-    gap: var(--sp-3);
-  }
+  .categories { background-color: var(--c-bg); }
+  .categories-header { margin-bottom: var(--sp-6); max-width: 620px; }
+  .categories-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-3); }
+  .category-item { display: flex; flex-direction: column; min-width: 0; overflow: hidden; background: var(--c-white); border: 1px solid var(--c-border); border-radius: var(--radius-md); transition: border-color var(--t-fast), box-shadow var(--t-fast); }
+  .category-item:hover { border-color: #b7c0ca; box-shadow: 0 2px 8px rgba(20, 34, 56, .08); }
+  .category-img-wrap { aspect-ratio: 4 / 3; background: var(--c-white); border-bottom: 1px solid var(--c-border); }
+  .category-img { width: 100%; height: 100%; padding: var(--sp-3); object-fit: contain; }
+  .category-body { display: flex; flex: 1; flex-direction: column; align-items: flex-start; padding: var(--sp-4); }
+  .category-name { color: var(--c-blue); font-size: var(--text-base); font-weight: 700; line-height: 1.25; }
+  .category-desc { display: none; margin-top: var(--sp-2); color: var(--c-text-muted); font-size: var(--text-sm); line-height: 1.45; }
+  .category-cta { display: inline-flex; align-items: center; gap: var(--sp-2); margin-top: auto; padding-top: var(--sp-3); color: var(--c-orange-dark); font-size: var(--text-sm); font-weight: 700; }
+  .category-cta:hover, .category-cta:focus-visible { color: var(--c-blue); text-decoration: underline; text-underline-offset: 3px; }
+  @media (min-width: 640px) { .categories-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sp-4); } .category-desc { display: block; } }
+  @media (min-width: 1024px) { .categories-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } .category-body { padding: var(--sp-5); } }
 </style>

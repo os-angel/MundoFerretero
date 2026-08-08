@@ -8,6 +8,7 @@ const { t, lang } = Astro.props;
 const waMsg = encodeURIComponent(t.common.whatsapp_msg);
 const waUrl = `https://wa.me/${t.common.wa_number}?text=${waMsg}`;
 const homeUrl = lang === 'es' ? '/' : `/${lang}`;
+const langUrls = { es: '/', en: '/en' };
 ---
 
 <header class="site-header" id="site-header" role="banner">
@@ -31,13 +32,6 @@ const homeUrl = lang === 'es' ? '/' : `/${lang}`;
       />
     </a>
 
-    <form class="header-search" action={waUrl} method="get" target="_blank" role="search">
-      <label class="sr-only" for="product-search">Buscar materiales</label>
-      <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
-      <input id="product-search" name="text" placeholder="¿Qué material buscas?" />
-      <button type="submit">Buscar</button>
-    </form>
-
     <!-- Desktop Nav -->
     <nav class="header-nav" aria-label="Navegación principal">
       <a href={homeUrl} class="nav-link" aria-current="page">{t.nav.home}</a>
@@ -50,9 +44,8 @@ const homeUrl = lang === 'es' ? '/' : `/${lang}`;
     <div class="header-actions">
       <!-- Language switcher -->
       <div class="lang-switcher" role="group" aria-label="Seleccionar idioma">
-        <button class={`lang-btn ${lang === 'es' ? 'lang-btn--active' : ''}`} data-lang="es" aria-pressed={lang === 'es' ? 'true' : 'false'}>ES</button>
-        <button class={`lang-btn ${lang === 'en' ? 'lang-btn--active' : ''}`} data-lang="en" aria-pressed={lang === 'en' ? 'true' : 'false'}>EN</button>
-        <button class={`lang-btn ${lang === 'tzu' ? 'lang-btn--active' : ''}`} data-lang="tzu" aria-pressed={lang === 'tzu' ? 'true' : 'false'}>TZU</button>
+        <a class={`lang-btn ${lang === 'es' ? 'lang-btn--active' : ''}`} href={langUrls.es} aria-current={lang === 'es' ? 'page' : undefined}>ES</a>
+        <a class={`lang-btn ${lang === 'en' ? 'lang-btn--active' : ''}`} href={langUrls.en} aria-current={lang === 'en' ? 'page' : undefined}>EN</a>
       </div>
 
       <!-- WhatsApp button -->
@@ -94,9 +87,8 @@ const homeUrl = lang === 'es' ? '/' : `/${lang}`;
       <a href="#contacto" class="mobile-nav-link">{t.nav.contact}</a>
     </nav>
     <div class="mobile-lang">
-      <button class={`lang-btn ${lang === 'es' ? 'lang-btn--active' : ''}`} data-lang="es">ES</button>
-      <button class={`lang-btn ${lang === 'en' ? 'lang-btn--active' : ''}`} data-lang="en">EN</button>
-      <button class={`lang-btn ${lang === 'tzu' ? 'lang-btn--active' : ''}`} data-lang="tzu">TZU</button>
+      <a class={`lang-btn ${lang === 'es' ? 'lang-btn--active' : ''}`} href={langUrls.es} aria-current={lang === 'es' ? 'page' : undefined}>ES</a>
+      <a class={`lang-btn ${lang === 'en' ? 'lang-btn--active' : ''}`} href={langUrls.en} aria-current={lang === 'en' ? 'page' : undefined}>EN</a>
     </div>
     <a
       href={waUrl}
@@ -137,14 +129,6 @@ const homeUrl = lang === 'es' ? '/' : `/${lang}`;
     });
   });
 
-  // Language switcher
-  const langButtons = document.querySelectorAll('[data-lang]');
-  langButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const selectedLang = (btn as HTMLButtonElement).dataset.lang ?? 'es';
-      window.location.assign(selectedLang === 'es' ? '/' : `/${selectedLang}`);
-    });
-  });
 </script>
 
 <style>
@@ -155,11 +139,11 @@ const homeUrl = lang === 'es' ? '/' : `/${lang}`;
     background-color: var(--c-white);
     border-bottom: 1px solid var(--c-border);
     height: auto;
-    box-shadow: 0 3px 14px rgba(20, 34, 56, .08);
+    box-shadow: 0 1px 4px rgba(20, 34, 56, .08);
   }
 
   .service-bar { background: var(--c-blue); color: rgba(255,255,255,.82); font-size: .72rem; font-weight: 700; }
-  .service-bar-inner { height: 30px; display: flex; justify-content: space-between; align-items: center; gap: var(--sp-4); }
+  .service-bar-inner { height: 26px; display: flex; justify-content: space-between; align-items: center; gap: var(--sp-4); }
   .service-bar a { color: var(--c-white); }
 
   .header-inner {
@@ -167,34 +151,43 @@ const homeUrl = lang === 'es' ? '/' : `/${lang}`;
     align-items: center;
     justify-content: space-between;
     gap: var(--sp-6);
-    padding-block: 0.65rem;
-    min-height: 82px;
+    padding-block: .35rem;
+    min-height: 70px;
   }
 
   /* Logo */
   .header-logo {
+    position: relative;
     flex-shrink: 0;
     display: flex;
     align-items: center;
+    width: 210px;
+    height: 58px;
+    overflow: hidden;
   }
 
   .logo-img {
-    height: 56px;
-    width: auto;
-    max-width: 240px;
-    object-fit: contain;
-    border-radius: var(--radius-sm);
+    position: absolute;
+    left: 50%;
+    top: 67%;
+    width: 318px;
+    max-width: none;
+    height: auto;
+    transform: translate(-50%, -50%);
     transition: transform var(--t-fast);
   }
 
   .header-logo:hover .logo-img {
-    transform: scale(1.02);
+    transform: translate(-50%, -50%) scale(1.02);
   }
 
   @media (min-width: 1024px) {
     .logo-img {
+      width: 380px;
+    }
+    .header-logo {
+      width: 250px;
       height: 68px;
-      max-width: 300px;
     }
   }
 
@@ -220,10 +213,6 @@ const homeUrl = lang === 'es' ? '/' : `/${lang}`;
     color: var(--c-blue);
     border-bottom-color: var(--c-orange);
   }
-
-  .header-search { display: none; align-items: center; gap: .6rem; width: min(310px, 25vw); height: 42px; padding-left: .8rem; background: var(--c-bg); border: 1px solid var(--c-border); border-radius: 999px; color: var(--c-text-muted); }
-  .header-search input { min-width: 0; flex: 1; border: 0; outline: 0; background: transparent; font-size: var(--text-sm); }
-  .header-search button { margin: 3px; border: 0; border-radius: 999px; padding: .52rem .85rem; background: var(--c-orange); color: var(--c-white); font-weight: 700; font-size: .74rem; cursor: pointer; }
 
   /* Actions */
   .header-actions {
@@ -318,7 +307,7 @@ const homeUrl = lang === 'es' ? '/' : `/${lang}`;
   .mobile-menu {
     display: none;
     position: absolute;
-    top: 108px;
+    top: 96px;
     left: 0;
     right: 0;
     background-color: var(--c-blue-dark);
@@ -381,13 +370,11 @@ const homeUrl = lang === 'es' ? '/' : `/${lang}`;
     }
   }
 
-  @media (min-width: 1150px) { .header-search { display: flex; } }
-
   @media (max-width: 640px) {
-    .site-header { height: 92px; }
+    .site-header { height: 96px; }
     .service-bar-inner { justify-content: center; height: 26px; }
     .service-bar a { display: none; }
-    .header-inner { height: 66px; }
-    .mobile-menu { top: 92px; }
+    .header-inner { height: 70px; }
+    .mobile-menu { top: 96px; }
   }
 </style>
