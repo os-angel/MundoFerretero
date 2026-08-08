@@ -6,24 +6,25 @@
       "name": {
         "es": "Cemento",
         "en": "Cement",
-        "tzu": "Kemento"
+        "tzu": "[tzu: Cemento]"
       },
       "description": {
-        "es": "Cemento UGC, Obrero e Internacional. Disponible por sacos.",
-        "en": "UGC, Obrero and Internacional cement. Available per bag.",
-        "tzu": "[Tz'utujil: descripción de cemento pendiente]"
+        "es": "Cemento UGC, Obrero e Internacional. Disponible por sacos de 42.5 kg.",
+        "en": "UGC, Obrero and Internacional cement. Available per 42.5 kg bag.",
+        "tzu": "[tzu: descripción de cemento pendiente]"
       },
-      "image": "/images/products/cemento.jpg",
+      "image": "/images/products/cemento-ugc.png",
       "imageAlt": {
-        "es": "Sacos de cemento UGC, Obrero e Internacional",
-        "en": "UGC, Obrero and Internacional cement bags",
-        "tzu": "Sacos de cemento"
+        "es": "Saco de Cemento UGC Progreso 4060 PSI 42.5 kg",
+        "en": "UGC Progreso 4060 PSI cement bag 42.5 kg",
+        "tzu": "Saco de cemento UGC"
       },
       "products": [
         {
           "id": "cemento-ugc",
-          "name": { "es": "Cemento UGC", "en": "UGC Cement", "tzu": "Kemento UGC" },
-          "description": { "es": "Saco 42.5 kg", "en": "42.5 kg bag", "tzu": "Saco 42.5 kg" },
+          "name": { "es": "Cemento UGC Progreso", "en": "UGC Progreso Cement", "tzu": "[tzu: Cemento UGC]" },
+          "description": { "es": "4060 PSI · Saco 42.5 kg", "en": "4060 PSI · 42.5 kg bag", "tzu": "4060 PSI · 42.5 kg" },
+          "image": "/images/products/cemento-ugc.png",
           "price": null,
           "priceOld": null,
           "unit": "saco",
@@ -33,8 +34,9 @@
         },
         {
           "id": "cemento-obrero",
-          "name": { "es": "Cemento Obrero", "en": "Obrero Cement", "tzu": "Kemento Obrero" },
-          "description": { "es": "Saco 42.5 kg", "en": "42.5 kg bag", "tzu": "Saco 42.5 kg" },
+          "name": { "es": "Cemento Obrero", "en": "Obrero Cement", "tzu": "[tzu: Cemento Obrero]" },
+          "description": { "es": "4060 PSI · Saco 42.5 kg", "en": "4060 PSI · 42.5 kg bag", "tzu": "4060 PSI · 42.5 kg" },
+          "image": "/images/products/cemento-obrero.png",
           "price": null,
           "priceOld": null,
           "unit": "saco",
@@ -44,12 +46,13 @@
         },
         {
           "id": "cemento-internacional",
-          "name": { "es": "Cemento Internacional", "en": "Internacional Cement", "tzu": "Kemento Internacional" },
-          "description": { "es": "Saco 42.5 kg", "en": "42.5 kg bag", "tzu": "Saco 42.5 kg" },
+          "name": { "es": "Cemento Internacional", "en": "Internacional Cement", "tzu": "[tzu: Cemento Internacional]" },
+          "description": { "es": "5200 PSI · Saco 42.5 kg", "en": "5200 PSI · 42.5 kg bag", "tzu": "5200 PSI · 42.5 kg" },
+          "image": "/images/products/cemento-internacional.png",
           "price": null,
           "priceOld": null,
           "unit": "saco",
-          "featured": false,
+          "featured": true,
           "onSale": false,
           "available": true
         }
@@ -66,7 +69,7 @@
       "description": {
         "es": "Block estándar para construcción. Varios tamaños disponibles.",
         "en": "Standard construction block. Various sizes available.",
-        "tzu": "[Tz'utujil: descripción de block pendiente]"
+        "tzu": "[tzu: descripción de block pendiente]"
       },
       "image": "/images/products/block.jpg",
       "imageAlt": {
@@ -79,6 +82,7 @@
           "id": "block-estandar",
           "name": { "es": "Block Estándar", "en": "Standard Block", "tzu": "Block Estándar" },
           "description": { "es": "39 × 19 × 9 cm", "en": "39 × 19 × 9 cm", "tzu": "39 × 19 × 9 cm" },
+          "image": "/images/products/block.jpg",
           "price": null,
           "priceOld": null,
           "unit": "unidad",
@@ -97,25 +101,50 @@
         "tzu": "Tubería y drenaje"
       },
       "description": {
-        "es": "Tubería PVC sanitaria y de drenaje. Accesorios y conexiones.",
-        "en": "Sanitary and drainage PVC pipes. Fittings and connections.",
-        "tzu": "[Tz'utujil: descripción de tubería pendiente]"
+        "es": "Tubería PVC para agua y drenaje. Codos, uniones y accesorios.",
+        "en": "PVC pipe for water and drainage. Elbows, joints and fittings.",
+        "tzu": "[tzu: descripción de tubería pendiente]"
       },
-      "image": "/images/products/tuberia.jpg",
+      "image": "/images/products/tuberia.png",
       "imageAlt": {
-        "es": "Tubería PVC naranja y gris con accesorios",
-        "en": "Orange and gray PVC pipe with fittings",
+        "es": "Tubería PVC amarilla para construcción",
+        "en": "Yellow PVC pipe for construction",
         "tzu": "Tubería PVC"
       },
       "products": [
         {
-          "id": "tubo-pvc-drenaje",
-          "name": { "es": "Tubo PVC Drenaje", "en": "PVC Drainage Pipe", "tzu": "Tubo PVC Drenaje" },
+          "id": "tubo-pvc",
+          "name": { "es": "Tubo PVC", "en": "PVC Pipe", "tzu": "Tubo PVC" },
           "description": { "es": "Varios diámetros disponibles", "en": "Various diameters available", "tzu": "Varios diámetros" },
+          "image": "/images/products/tuberia.png",
           "price": null,
           "priceOld": null,
           "unit": "tubo",
           "featured": true,
+          "onSale": false,
+          "available": true
+        },
+        {
+          "id": "codo-pvc",
+          "name": { "es": "Codo PVC", "en": "PVC Elbow", "tzu": "Codo PVC" },
+          "description": { "es": "Accesorio de 90°", "en": "90° fitting", "tzu": "Accesorio 90°" },
+          "image": "/images/products/codo-pvc.png",
+          "price": null,
+          "priceOld": null,
+          "unit": "pieza",
+          "featured": false,
+          "onSale": false,
+          "available": true
+        },
+        {
+          "id": "pegamento-pvc",
+          "name": { "es": "Pegamento PVC Lynco", "en": "Lynco PVC Cement", "tzu": "Pegamento PVC" },
+          "description": { "es": "Para tubos rígidos y flexibles", "en": "For rigid and flexible pipes", "tzu": "Para tubos" },
+          "image": "/images/products/pegamento-pvc.png",
+          "price": null,
+          "priceOld": null,
+          "unit": "frasco",
+          "featured": false,
           "onSale": false,
           "available": true
         }
@@ -132,7 +161,7 @@
       "description": {
         "es": "Rollo de poliducto negro para agua potable. Varios diámetros.",
         "en": "Black polyethylene pipe roll for potable water. Various diameters.",
-        "tzu": "[Tz'utujil: descripción de poliducto pendiente]"
+        "tzu": "[tzu: descripción de poliducto pendiente]"
       },
       "image": "/images/products/poliducto.jpg",
       "imageAlt": {
@@ -145,6 +174,7 @@
           "id": "poliducto-rollo",
           "name": { "es": "Poliducto Negro", "en": "Black Polyethylene Pipe", "tzu": "Poliducto Negro" },
           "description": { "es": "Disponible en rollo", "en": "Available in roll", "tzu": "En rollo" },
+          "image": "/images/products/poliducto.jpg",
           "price": null,
           "priceOld": null,
           "unit": "rollo",
@@ -165,7 +195,7 @@
       "description": {
         "es": "Sanitarios y accesorios de baño. Consulta disponibilidad de modelos.",
         "en": "Toilets and bathroom accessories. Ask about available models.",
-        "tzu": "[Tz'utujil: descripción de sanitarios pendiente]"
+        "tzu": "[tzu: descripción de sanitarios pendiente]"
       },
       "image": "/images/products/sanitarios.jpg",
       "imageAlt": {
@@ -178,6 +208,7 @@
           "id": "sanitario-blanco",
           "name": { "es": "Sanitario", "en": "Toilet", "tzu": "Sanitario" },
           "description": { "es": "Varios modelos disponibles", "en": "Various models available", "tzu": "Varios modelos" },
+          "image": "/images/products/sanitarios.jpg",
           "price": null,
           "priceOld": null,
           "unit": "pieza",
@@ -198,7 +229,7 @@
       "description": {
         "es": "Varilla de hierro y alambre de amarre para estructura.",
         "en": "Rebar and tie wire for structural work.",
-        "tzu": "[Tz'utujil: descripción de hierro pendiente]"
+        "tzu": "[tzu: descripción de hierro pendiente]"
       },
       "image": "/images/products/hierro.jpg",
       "imageAlt": {
@@ -211,9 +242,44 @@
           "id": "varilla-hierro",
           "name": { "es": "Varilla de Hierro", "en": "Steel Rebar", "tzu": "Varilla de Hierro" },
           "description": { "es": "Varios calibres disponibles", "en": "Various gauges available", "tzu": "Varios calibres" },
+          "image": "/images/products/hierro.jpg",
           "price": null,
           "priceOld": null,
           "unit": "quintal",
+          "featured": true,
+          "onSale": false,
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "accesorios",
+      "slug": "accesorios",
+      "name": {
+        "es": "Accesorios",
+        "en": "Accessories",
+        "tzu": "Accesorios"
+      },
+      "description": {
+        "es": "Guantes de trabajo, pegamentos y accesorios para construcción.",
+        "en": "Work gloves, adhesives and construction accessories.",
+        "tzu": "[tzu: descripción de accesorios pendiente]"
+      },
+      "image": "/images/products/guantes.png",
+      "imageAlt": {
+        "es": "Guantes de trabajo para construcción",
+        "en": "Construction work gloves",
+        "tzu": "Guantes de trabajo"
+      },
+      "products": [
+        {
+          "id": "guantes-trabajo",
+          "name": { "es": "Guantes de Trabajo", "en": "Work Gloves", "tzu": "Guantes" },
+          "description": { "es": "Protección para manos", "en": "Hand protection", "tzu": "Protección manos" },
+          "image": "/images/products/guantes.png",
+          "price": null,
+          "priceOld": null,
+          "unit": "par",
           "featured": true,
           "onSale": false,
           "available": true
