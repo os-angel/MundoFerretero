@@ -1,0 +1,79 @@
+---
+// ShippingBlock.astro
+interface Props {
+  t: Record<string, any>;
+}
+const { t } = Astro.props;
+const waMsg = encodeURIComponent('Hola Mundo Ferretero, quisiera consultar sobre el servicio de envío.');
+const waUrl = `https://wa.me/${t.common.wa_number}?text=${waMsg}`;
+---
+
+<section class="shipping section--lg" id="envio" aria-labelledby="shipping-title">
+  <div class="container">
+    <div class="shipping-inner">
+
+      <div class="shipping-icon" aria-hidden="true">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="1" y="3" width="15" height="13" rx="1"/>
+          <path d="M16 8h4l3 4v4h-7V8z"/>
+          <circle cx="5.5" cy="18.5" r="2.5"/>
+          <circle cx="18.5" cy="18.5" r="2.5"/>
+        </svg>
+      </div>
+
+      <div class="shipping-content">
+        <h2 class="section-title section-title--white" id="shipping-title">{t.shipping.title}</h2>
+        <p class="section-subtitle section-subtitle--white">{t.shipping.description}</p>
+      </div>
+
+      <div class="shipping-action">
+        <a
+          href={waUrl}
+          class="btn btn--primary"
+          target="_blank"
+          rel="noopener noreferrer"
+          id="shipping-cta-btn"
+          aria-label="Consultar servicio de envío por WhatsApp"
+        >
+          {t.shipping.cta}
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .shipping {
+    background-color: var(--c-blue);
+    color: var(--c-white);
+  }
+
+  .shipping-inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-6);
+    align-items: flex-start;
+  }
+
+  .shipping-icon {
+    color: var(--c-orange);
+    flex-shrink: 0;
+  }
+
+  .shipping-content {
+    flex: 1;
+  }
+
+  .shipping-action {
+    flex-shrink: 0;
+  }
+
+  @media (min-width: 768px) {
+    .shipping-inner {
+      flex-direction: row;
+      align-items: center;
+      gap: var(--sp-10);
+    }
+  }
+</style>

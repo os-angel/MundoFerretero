@@ -1,17 +1,42 @@
 ---
+// src/pages/index.astro — Página principal de Mundo Ferretero
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Categories from '../components/Categories.astro';
+import ShippingBlock from '../components/ShippingBlock.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import LocationContact from '../components/LocationContact.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
 
+// Load i18n and product data
+import esStrings from '../data/i18n/es.json';
+import enStrings from '../data/i18n/en.json';
+import tzuStrings from '../data/i18n/tzu.json';
+import productsData from '../data/products.json';
+
+// Language: static ES base; switcher handles client-side updates via localStorage
+const lang = 'es';
+const t = lang === 'en' ? enStrings : lang === 'tzu' ? tzuStrings : esStrings;
+const categories = productsData.categories;
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+  title="Mundo Ferretero | Ferretería en Santiago Atitlán"
+  description="Materiales para construcción en Santiago Atitlán. Cemento, block, tubería, sanitarios, poliducto y más. Consulta disponibilidad y servicio de envío."
+  lang={lang}
+>
+  <Header t={t} lang={lang} />
+
+  <main id="main-content">
+    <Hero t={t} />
+    <Categories t={t} lang={lang} categories={categories} />
+    <ShippingBlock t={t} />
+    <CtaBlock t={t} />
+    <LocationContact t={t} />
+  </main>
+
+  <Footer t={t} />
+  <WhatsAppButton waNumber={t.common.wa_number} waMsg={t.common.whatsapp_msg} />
+</BaseLayout>

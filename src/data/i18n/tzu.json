@@ -1,0 +1,59 @@
+{
+  "_note": "Traducciones al Tz'utujil pendientes. Por favor proporcionar traducciones para reemplazar los placeholders [tzu: ...].",
+  "_idioma": "Tz'utujil — idioma maya de Santiago Atitlán, Sololá, Guatemala.",
+  "nav": {
+    "home": "[tzu: Inicio]",
+    "products": "[tzu: Productos]",
+    "services": "[tzu: Servicios]",
+    "contact": "[tzu: Contacto]",
+    "whatsapp": "WhatsApp"
+  },
+  "hero": {
+    "eyebrow": "MUNDO FERRETERO · SANTIAGO ATITLÁN",
+    "headline": "[tzu: Materiales para construir, reparar y mejorar.]",
+    "subheadline": "[tzu: Cemento, block, tubería, sanitarios, materiales pa ri nan tzij ri Santiago Atitlán.]",
+    "cta_products": "[tzu: Ver productos]",
+    "cta_whatsapp": "[tzu: Escribir por WhatsApp]",
+    "shipping_note": "[tzu: Servicio de envío disponible]"
+  },
+  "categories": {
+    "title": "[tzu: Encuentra lo que necesitas]",
+    "subtitle": "[tzu: Materiales de construcción en un solo lugar.]",
+    "cta": "[tzu: Consultar precio]"
+  },
+  "shipping": {
+    "title": "[tzu: Contamos con servicio de envío]",
+    "description": "[tzu: Compra tus materiales y consulta disponibilidad de envío en Santiago Atitlán y áreas cercanas.]",
+    "cta": "[tzu: Consultar envío]"
+  },
+  "cta_section": {
+    "title": "[tzu: ¿Buscas algún material?]",
+    "description": "[tzu: Escríbenos y consulta disponibilidad. Respondemos por WhatsApp.]",
+    "cta_whatsapp": "[tzu: Escribir por WhatsApp]",
+    "cta_call": "[tzu: Llamar ahora]"
+  },
+  "location": {
+    "title": "[tzu: Dónde encontrarnos]",
+    "address_label": "[tzu: Dirección]",
+    "address": "Cantón Panaj, Santiago Atitlán, Sololá, Guatemala.",
+    "phone_label": "[tzu: Teléfono / WhatsApp]",
+    "phone": "+502 3921-6866",
+    "hours_label": "[tzu: Horario]",
+    "hours": "[tzu: Lunes a sábado, 8:00 am – 6:00 pm]",
+    "map_placeholder": "[tzu: Ver en Google Maps]"
+  },
+  "footer": {
+    "products_col": "[tzu: Productos]",
+    "services_col": "[tzu: Servicios]",
+    "contact_col": "[tzu: Contacto]",
+    "copyright": "© Mundo Ferretero",
+    "location_short": "Santiago Atitlán, Sololá, Guatemala",
+    "services_list": ["[tzu: Venta de materiales]", "[tzu: Servicio de envío]", "[tzu: Consulta de precios]"]
+  },
+  "common": {
+    "consult_price": "[tzu: Consultar precio]",
+    "whatsapp_msg": "Hola Mundo Ferretero, quisiera consultar por un producto.",
+    "phone_number": "+502 3921-6866",
+    "wa_number": "50239216866"
+  }
+}

@@ -1,0 +1,103 @@
+---
+// BaseLayout.astro — HTML base, SEO meta, Schema.org
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  lang?: string;
+  ogImage?: string;
+}
+
+const {
+  title = 'Mundo Ferretero | Ferretería en Santiago Atitlán',
+  description = 'Materiales para construcción en Santiago Atitlán. Cemento, block, tubería, sanitarios, poliducto y más. Consulta disponibilidad y servicio de envío.',
+  lang = 'es',
+  ogImage = '/images/logo.jpg',
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, 'https://www.mundoferreterogt.com').href;
+const ogImageAbsolute = new URL(ogImage, 'https://www.mundoferreterogt.com').href;
+
+const schemaLD = {
+  "@context": "https://schema.org",
+  "@type": "HardwareStore",
+  "name": "Mundo Ferretero",
+  "description": "Ferretería y materiales de construcción en Santiago Atitlán, Sololá, Guatemala.",
+  "url": "https://www.mundoferreterogt.com",
+  "telephone": "+50239216866",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Cantón Panaj",
+    "addressLocality": "Santiago Atitlán",
+    "addressRegion": "Sololá",
+    "addressCountry": "GT"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 14.6253635,
+    "longitude": -91.2333991
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+      "opens": "08:00",
+      "closes": "18:00"
+    }
+  ],
+  "hasMap": "https://www.google.com/maps/place/Vista+del+Volc%C3%A1n/@14.6253949,-91.2335995,21z"
+};
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Primary SEO -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="robots" content="index, follow" />
+
+    <!-- OpenGraph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Mundo Ferretero" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageAbsolute} />
+    <meta property="og:locale" content={lang === 'es' ? 'es_GT' : lang === 'en' ? 'en_US' : 'es_GT'} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageAbsolute} />
+
+    <!-- Local SEO keywords -->
+    <meta name="keywords" content="ferretería Santiago Atitlán, materiales construcción Santiago Atitlán, cemento Santiago Atitlán, block Santiago Atitlán, tubería Santiago Atitlán, Mundo Ferretero" />
+    <meta name="geo.region" content="GT-SO" />
+    <meta name="geo.placename" content="Santiago Atitlán, Sololá, Guatemala" />
+    <meta name="geo.position" content="14.6253635;-91.2333991" />
+    <meta name="ICBM" content="14.6253635, -91.2333991" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+    <!-- Preconnect for fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify(schemaLD)} />
+
+    <!-- Sitemap reference -->
+    <link rel="sitemap" href="/sitemap-index.xml" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

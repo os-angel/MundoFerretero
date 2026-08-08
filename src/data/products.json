@@ -1,0 +1,224 @@
+{
+  "categories": [
+    {
+      "id": "cemento",
+      "slug": "cemento",
+      "name": {
+        "es": "Cemento",
+        "en": "Cement",
+        "tzu": "Kemento"
+      },
+      "description": {
+        "es": "Cemento UGC, Obrero e Internacional. Disponible por sacos.",
+        "en": "UGC, Obrero and Internacional cement. Available per bag.",
+        "tzu": "[Tz'utujil: descripción de cemento pendiente]"
+      },
+      "image": "/images/products/cemento.jpg",
+      "imageAlt": {
+        "es": "Sacos de cemento UGC, Obrero e Internacional",
+        "en": "UGC, Obrero and Internacional cement bags",
+        "tzu": "Sacos de cemento"
+      },
+      "products": [
+        {
+          "id": "cemento-ugc",
+          "name": { "es": "Cemento UGC", "en": "UGC Cement", "tzu": "Kemento UGC" },
+          "description": { "es": "Saco 42.5 kg", "en": "42.5 kg bag", "tzu": "Saco 42.5 kg" },
+          "price": null,
+          "priceOld": null,
+          "unit": "saco",
+          "featured": true,
+          "onSale": false,
+          "available": true
+        },
+        {
+          "id": "cemento-obrero",
+          "name": { "es": "Cemento Obrero", "en": "Obrero Cement", "tzu": "Kemento Obrero" },
+          "description": { "es": "Saco 42.5 kg", "en": "42.5 kg bag", "tzu": "Saco 42.5 kg" },
+          "price": null,
+          "priceOld": null,
+          "unit": "saco",
+          "featured": true,
+          "onSale": false,
+          "available": true
+        },
+        {
+          "id": "cemento-internacional",
+          "name": { "es": "Cemento Internacional", "en": "Internacional Cement", "tzu": "Kemento Internacional" },
+          "description": { "es": "Saco 42.5 kg", "en": "42.5 kg bag", "tzu": "Saco 42.5 kg" },
+          "price": null,
+          "priceOld": null,
+          "unit": "saco",
+          "featured": false,
+          "onSale": false,
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "block",
+      "slug": "block",
+      "name": {
+        "es": "Block",
+        "en": "Concrete Block",
+        "tzu": "Block"
+      },
+      "description": {
+        "es": "Block estándar para construcción. Varios tamaños disponibles.",
+        "en": "Standard construction block. Various sizes available.",
+        "tzu": "[Tz'utujil: descripción de block pendiente]"
+      },
+      "image": "/images/products/block.jpg",
+      "imageAlt": {
+        "es": "Blocks de construcción apilados",
+        "en": "Stacked concrete construction blocks",
+        "tzu": "Blocks de construcción"
+      },
+      "products": [
+        {
+          "id": "block-estandar",
+          "name": { "es": "Block Estándar", "en": "Standard Block", "tzu": "Block Estándar" },
+          "description": { "es": "39 × 19 × 9 cm", "en": "39 × 19 × 9 cm", "tzu": "39 × 19 × 9 cm" },
+          "price": null,
+          "priceOld": null,
+          "unit": "unidad",
+          "featured": true,
+          "onSale": false,
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "tuberia",
+      "slug": "tuberia-y-drenaje",
+      "name": {
+        "es": "Tubería y drenaje",
+        "en": "Pipes & Drainage",
+        "tzu": "Tubería y drenaje"
+      },
+      "description": {
+        "es": "Tubería PVC sanitaria y de drenaje. Accesorios y conexiones.",
+        "en": "Sanitary and drainage PVC pipes. Fittings and connections.",
+        "tzu": "[Tz'utujil: descripción de tubería pendiente]"
+      },
+      "image": "/images/products/tuberia.jpg",
+      "imageAlt": {
+        "es": "Tubería PVC naranja y gris con accesorios",
+        "en": "Orange and gray PVC pipe with fittings",
+        "tzu": "Tubería PVC"
+      },
+      "products": [
+        {
+          "id": "tubo-pvc-drenaje",
+          "name": { "es": "Tubo PVC Drenaje", "en": "PVC Drainage Pipe", "tzu": "Tubo PVC Drenaje" },
+          "description": { "es": "Varios diámetros disponibles", "en": "Various diameters available", "tzu": "Varios diámetros" },
+          "price": null,
+          "priceOld": null,
+          "unit": "tubo",
+          "featured": true,
+          "onSale": false,
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "poliducto",
+      "slug": "poliducto",
+      "name": {
+        "es": "Poliducto",
+        "en": "Polyethylene Pipe",
+        "tzu": "Poliducto"
+      },
+      "description": {
+        "es": "Rollo de poliducto negro para agua potable. Varios diámetros.",
+        "en": "Black polyethylene pipe roll for potable water. Various diameters.",
+        "tzu": "[Tz'utujil: descripción de poliducto pendiente]"
+      },
+      "image": "/images/products/poliducto.jpg",
+      "imageAlt": {
+        "es": "Rollo de poliducto negro",
+        "en": "Black polyethylene pipe roll",
+        "tzu": "Rollo de poliducto"
+      },
+      "products": [
+        {
+          "id": "poliducto-rollo",
+          "name": { "es": "Poliducto Negro", "en": "Black Polyethylene Pipe", "tzu": "Poliducto Negro" },
+          "description": { "es": "Disponible en rollo", "en": "Available in roll", "tzu": "En rollo" },
+          "price": null,
+          "priceOld": null,
+          "unit": "rollo",
+          "featured": true,
+          "onSale": false,
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "sanitarios",
+      "slug": "sanitarios",
+      "name": {
+        "es": "Sanitarios",
+        "en": "Bathroom Fixtures",
+        "tzu": "Sanitarios"
+      },
+      "description": {
+        "es": "Sanitarios y accesorios de baño. Consulta disponibilidad de modelos.",
+        "en": "Toilets and bathroom accessories. Ask about available models.",
+        "tzu": "[Tz'utujil: descripción de sanitarios pendiente]"
+      },
+      "image": "/images/products/sanitarios.jpg",
+      "imageAlt": {
+        "es": "Sanitario blanco con accesorios de baño",
+        "en": "White toilet with bathroom accessories",
+        "tzu": "Sanitario blanco"
+      },
+      "products": [
+        {
+          "id": "sanitario-blanco",
+          "name": { "es": "Sanitario", "en": "Toilet", "tzu": "Sanitario" },
+          "description": { "es": "Varios modelos disponibles", "en": "Various models available", "tzu": "Varios modelos" },
+          "price": null,
+          "priceOld": null,
+          "unit": "pieza",
+          "featured": true,
+          "onSale": false,
+          "available": true
+        }
+      ]
+    },
+    {
+      "id": "hierro",
+      "slug": "hierro-y-acero",
+      "name": {
+        "es": "Hierro y acero",
+        "en": "Steel & Iron",
+        "tzu": "Hierro y acero"
+      },
+      "description": {
+        "es": "Varilla de hierro y alambre de amarre para estructura.",
+        "en": "Rebar and tie wire for structural work.",
+        "tzu": "[Tz'utujil: descripción de hierro pendiente]"
+      },
+      "image": "/images/products/hierro.jpg",
+      "imageAlt": {
+        "es": "Varillas de hierro y acero para construcción",
+        "en": "Steel rebar for construction",
+        "tzu": "Varillas de hierro"
+      },
+      "products": [
+        {
+          "id": "varilla-hierro",
+          "name": { "es": "Varilla de Hierro", "en": "Steel Rebar", "tzu": "Varilla de Hierro" },
+          "description": { "es": "Varios calibres disponibles", "en": "Various gauges available", "tzu": "Varios calibres" },
+          "price": null,
+          "priceOld": null,
+          "unit": "quintal",
+          "featured": true,
+          "onSale": false,
+          "available": true
+        }
+      ]
+    }
+  ]
+}

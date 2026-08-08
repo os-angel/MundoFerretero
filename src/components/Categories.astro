@@ -1,0 +1,169 @@
+---
+// Categories.astro
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  t: Record<string, any>;
+  lang: string;
+  categories: any[];
+}
+const { t, lang, categories } = Astro.props;
+const waMsg = encodeURIComponent(t.common.whatsapp_msg);
+const waUrl = `https://wa.me/${t.common.wa_number}?text=${waMsg}`;
+---
+
+<section class="categories section" id="productos" aria-labelledby="categories-title">
+  <div class="container">
+
+    <!-- Section Header -->
+    <div class="categories-header">
+      <h2 class="section-title" id="categories-title">{t.categories.title}</h2>
+      <p class="section-subtitle">{t.categories.subtitle}</p>
+    </div>
+
+    <!-- Grid -->
+    <div class="categories-grid" role="list">
+      {categories.map((cat) => {
+        const name = cat.name[lang] ?? cat.name.es;
+        const description = cat.description[lang] ?? cat.description.es;
+        const imageAlt = cat.imageAlt[lang] ?? cat.imageAlt.es;
+        const catWaMsg = encodeURIComponent(`Hola Mundo Ferretero, quisiera consultar precios de: ${cat.name.es}`);
+        const catWaUrl = `https://wa.me/${t.common.wa_number}?text=${catWaMsg}`;
+
+        return (
+          <article class="category-item" role="listitem">
+            <div class="category-img-wrap">
+              <img
+                src={cat.image}
+                alt={imageAlt}
+                class="category-img"
+                width="480"
+                height="360"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="category-body">
+              <h3 class="category-name">{name}</h3>
+              <p class="category-desc">{description}</p>
+              <a
+                href={catWaUrl}
+                class="category-cta"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Consultar precio de ${name} por WhatsApp`}
+              >
+                {t.categories.cta}
+                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+        );
+      })}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .categories {
+    background-color: var(--c-bg);
+  }
+
+  .categories-header {
+    margin-bottom: var(--sp-10);
+  }
+
+  /* Grid: 1 col → 2 col → 3 col */
+  .categories-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--sp-6);
+  }
+
+  @media (min-width: 430px) {
+    .categories-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .categories-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  /* Category item — not a floating card, a grounded editorial block */
+  .category-item {
+    background-color: var(--c-white);
+    border: 1px solid var(--c-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: border-color var(--t-base);
+  }
+
+  .category-item:hover {
+    border-color: rgba(26, 46, 72, 0.3);
+  }
+
+  .category-img-wrap {
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    background-color: var(--c-bg);
+  }
+
+  .category-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform var(--t-slow);
+  }
+
+  .category-item:hover .category-img {
+    transform: scale(1.03);
+  }
+
+  .category-body {
+    padding: var(--sp-5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-2);
+    flex: 1;
+  }
+
+  .category-name {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: var(--c-text);
+    line-height: 1.2;
+  }
+
+  .category-desc {
+    font-size: var(--text-sm);
+    color: var(--c-text-muted);
+    line-height: 1.55;
+    flex: 1;
+  }
+
+  .category-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--c-orange);
+    margin-top: var(--sp-3);
+    transition: gap var(--t-fast), color var(--t-fast);
+  }
+
+  .category-cta:hover,
+  .category-cta:focus-visible {
+    color: var(--c-orange-dark);
+    gap: var(--sp-3);
+  }
+</style>

@@ -1,0 +1,57 @@
+{
+  "nav": {
+    "home": "Home",
+    "products": "Products",
+    "services": "Services",
+    "contact": "Contact",
+    "whatsapp": "WhatsApp"
+  },
+  "hero": {
+    "eyebrow": "MUNDO FERRETERO · SANTIAGO ATITLÁN",
+    "headline": "Materials to build, repair, and improve.",
+    "subheadline": "Cement, blocks, pipes, bathroom fixtures, and materials for your project in Santiago Atitlán.",
+    "cta_products": "View products",
+    "cta_whatsapp": "Message on WhatsApp",
+    "shipping_note": "Delivery service available"
+  },
+  "categories": {
+    "title": "Find what you need",
+    "subtitle": "Construction materials and hardware in one place.",
+    "cta": "Ask for price"
+  },
+  "shipping": {
+    "title": "We offer a delivery service",
+    "description": "Order your materials and ask about delivery availability in Santiago Atitlán and nearby areas.",
+    "cta": "Ask about delivery"
+  },
+  "cta_section": {
+    "title": "Looking for a material?",
+    "description": "Send us a message and ask about availability. We reply on WhatsApp.",
+    "cta_whatsapp": "Message on WhatsApp",
+    "cta_call": "Call now"
+  },
+  "location": {
+    "title": "Find us",
+    "address_label": "Address",
+    "address": "Cantón Panaj, Santiago Atitlán, Sololá, Guatemala.",
+    "phone_label": "Phone / WhatsApp",
+    "phone": "+502 3921-6866",
+    "hours_label": "Hours",
+    "hours": "Monday to Saturday, 8:00 am – 6:00 pm",
+    "map_placeholder": "View on Google Maps"
+  },
+  "footer": {
+    "products_col": "Products",
+    "services_col": "Services",
+    "contact_col": "Contact",
+    "copyright": "© Mundo Ferretero",
+    "location_short": "Santiago Atitlán, Sololá, Guatemala",
+    "services_list": ["Material sales", "Delivery service", "Price inquiries"]
+  },
+  "common": {
+    "consult_price": "Ask for price",
+    "whatsapp_msg": "Hello Mundo Ferretero, I would like to ask about a product.",
+    "phone_number": "+502 3921-6866",
+    "wa_number": "50239216866"
+  }
+}

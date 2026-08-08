@@ -1,0 +1,57 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "products": "Productos",
+    "services": "Servicios",
+    "contact": "Contacto",
+    "whatsapp": "WhatsApp"
+  },
+  "hero": {
+    "eyebrow": "MUNDO FERRETERO · SANTIAGO ATITLÁN",
+    "headline": "Materiales para construir, reparar y mejorar.",
+    "subheadline": "Cemento, block, tubería, sanitarios y materiales para tu proyecto en Santiago Atitlán.",
+    "cta_products": "Ver productos",
+    "cta_whatsapp": "Escribir por WhatsApp",
+    "shipping_note": "Servicio de envío disponible"
+  },
+  "categories": {
+    "title": "Encuentra lo que necesitas",
+    "subtitle": "Materiales de construcción y ferretería en un solo lugar.",
+    "cta": "Consultar precio"
+  },
+  "shipping": {
+    "title": "Contamos con servicio de envío",
+    "description": "Compra tus materiales y consulta disponibilidad de envío en Santiago Atitlán y áreas cercanas.",
+    "cta": "Consultar envío"
+  },
+  "cta_section": {
+    "title": "¿Buscas algún material?",
+    "description": "Escríbenos y consulta disponibilidad. Respondemos por WhatsApp.",
+    "cta_whatsapp": "Escribir por WhatsApp",
+    "cta_call": "Llamar ahora"
+  },
+  "location": {
+    "title": "Dónde encontrarnos",
+    "address_label": "Dirección",
+    "address": "Cantón Panaj, Santiago Atitlán, Sololá, Guatemala.",
+    "phone_label": "Teléfono / WhatsApp",
+    "phone": "+502 3921-6866",
+    "hours_label": "Horario",
+    "hours": "Lunes a sábado, 8:00 am – 6:00 pm",
+    "map_placeholder": "Ver en Google Maps"
+  },
+  "footer": {
+    "products_col": "Productos",
+    "services_col": "Servicios",
+    "contact_col": "Contacto",
+    "copyright": "© Mundo Ferretero",
+    "location_short": "Santiago Atitlán, Sololá, Guatemala",
+    "services_list": ["Venta de materiales", "Servicio de envío", "Consulta de precios"]
+  },
+  "common": {
+    "consult_price": "Consultar precio",
+    "whatsapp_msg": "Hola Mundo Ferretero, quisiera consultar por un producto.",
+    "phone_number": "+502 3921-6866",
+    "wa_number": "50239216866"
+  }
+}
