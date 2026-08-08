@@ -43,6 +43,17 @@ const waUrl = `https://wa.me/${waNumber}?text=${encodedMsg}`;
       transform var(--t-fast),
       box-shadow var(--t-fast);
     -webkit-tap-highlight-color: transparent;
+    animation: wa-attention 3.4s ease-in-out 2s infinite;
+  }
+
+  .wa-float::after {
+    content: '';
+    position: absolute;
+    inset: -5px;
+    border: 2px solid rgba(37, 211, 102, .55);
+    border-radius: inherit;
+    animation: wa-ring 3.4s ease-out 2s infinite;
+    pointer-events: none;
   }
 
   .wa-float:hover,
@@ -54,6 +65,18 @@ const waUrl = `https://wa.me/${waNumber}?text=${encodedMsg}`;
 
   .wa-float:active {
     transform: translateY(0);
+  }
+
+  @keyframes wa-attention {
+    0%, 8%, 100% { transform: translateY(0); }
+    3% { transform: translateY(-4px); }
+    6% { transform: translateY(-2px); }
+  }
+
+  @keyframes wa-ring {
+    0%, 8% { opacity: 0; transform: scale(.82); }
+    4% { opacity: .8; }
+    14%, 100% { opacity: 0; transform: scale(1.28); }
   }
 
   /* Tooltip */
@@ -75,5 +98,9 @@ const waUrl = `https://wa.me/${waNumber}?text=${encodedMsg}`;
   .wa-float:hover .wa-tooltip,
   .wa-float:focus-visible .wa-tooltip {
     opacity: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .wa-float, .wa-float::after { animation: none; }
   }
 </style>
