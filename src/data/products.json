@@ -191,26 +191,26 @@
         "en": "Polyethylene Pipe"
       },
       "description": {
-        "es": "Rollo de poliducto negro para agua potable. Varios diámetros.",
-        "en": "Black polyethylene pipe roll for potable water. Various diameters."
+        "es": "Poliducto delgado de 3/8\" para instalaciones.",
+        "en": "Slim 3/8\" polyduct for installations."
       },
-      "image": "/images/products/poliducto.jpg",
+      "image": "/images/products/tuberia.png",
       "imageAlt": {
-        "es": "Rollo de poliducto negro",
-        "en": "Black polyethylene pipe roll"
+        "es": "Poliducto delgado de 3/8 pulgadas",
+        "en": "Slim 3/8-inch polyduct"
       },
       "products": [
         {
           "id": "poliducto-rollo",
           "name": {
-            "es": "Poliducto Negro",
-            "en": "Black Polyethylene Pipe"
+            "es": "Poliducto 3/8\"",
+            "en": "3/8\" Polyduct"
           },
           "description": {
             "es": "Poliducto 3/8\"",
             "en": "3/8\" Polyethylene Pipe"
           },
-          "image": "/images/products/poliducto.jpg",
+          "image": "/images/products/tuberia.png",
           "price": 18,
           "priceOld": null,
           "unit": "rollo",
@@ -322,7 +322,7 @@
             "en": "Hand protection"
           },
           "image": "/images/products/guantes.png",
-          "price": null,
+          "price": 12,
           "priceOld": null,
           "unit": "par",
           "featured": true,
