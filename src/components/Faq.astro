@@ -1,0 +1,63 @@
+---
+interface Props {
+  lang: string;
+  address: string;
+  hours: string;
+  phone: string;
+}
+
+const { lang, address, hours, phone } = Astro.props;
+const isEnglish = lang === 'en';
+const faqs = isEnglish
+  ? [
+      ['What does Mundo Ferretero sell?', 'Mundo Ferretero sells construction materials and hardware, including cement, block, PVC pipe, polyethylene pipe, bathroom fixtures, steel and accessories.'],
+      ['How can I check availability?', `Contact Mundo Ferretero by WhatsApp or call ${phone} to ask about availability and prices.`],
+      ['Where is Mundo Ferretero located?', address],
+      ['What are the business hours?', hours],
+      ['Do you offer delivery?', 'Delivery availability can be consulted for Santiago Atitlán and nearby areas.']
+    ]
+  : [
+      ['¿Qué vende Mundo Ferretero?', 'Mundo Ferretero vende materiales para construcción y ferretería, incluyendo cemento, block, tubería PVC, poliducto, sanitarios, hierro y accesorios.'],
+      ['¿Cómo consulto disponibilidad?', `Puedes contactar a Mundo Ferretero por WhatsApp o llamar al ${phone} para consultar precios y disponibilidad.`],
+      ['¿Dónde se ubica Mundo Ferretero?', address],
+      ['¿Cuál es el horario?', hours],
+      ['¿Tienen servicio de envío?', 'Puedes consultar disponibilidad de envío para Santiago Atitlán y áreas cercanas.']
+    ];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(([name, text]) => ({
+    '@type': 'Question',
+    name,
+    acceptedAnswer: { '@type': 'Answer', text }
+  }))
+};
+---
+
+<section class="faq section" aria-labelledby="faq-title">
+  <div class="container container--narrow">
+    <h2 class="section-title" id="faq-title">{isEnglish ? 'Frequently asked questions' : 'Preguntas frecuentes'}</h2>
+    <div class="faq-list">
+      {faqs.map(([question, answer]) => (
+        <details>
+          <summary>{question}</summary>
+          <p>{answer}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+<style>
+  .faq { background: var(--c-white); border-top: 1px solid var(--c-border); }
+  .faq-list { margin-top: var(--sp-5); border-top: 1px solid var(--c-border); }
+  details { border-bottom: 1px solid var(--c-border); }
+  summary { cursor: pointer; padding: var(--sp-4) var(--sp-8) var(--sp-4) 0; color: var(--c-blue); font-weight: 700; list-style: none; position: relative; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: '+'; position: absolute; right: 0; color: var(--c-orange); font-size: 1.25rem; line-height: 1; }
+  details[open] summary::after { content: '−'; }
+  details p { max-width: 70ch; padding: 0 0 var(--sp-4); color: var(--c-text-muted); }
+</style>

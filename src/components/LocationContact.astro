@@ -30,7 +30,7 @@ const mapSrc = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d244.288678
               </svg>
               {t.location.address_label}
             </dt>
-            <dd class="detail-value">{t.location.address}</dd>
+            <dd class="detail-value"><address>{t.location.address}</address></dd>
           </div>
 
           <div class="detail-item">
@@ -150,6 +150,8 @@ const mapSrc = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d244.288678
     font-weight: 600;
     padding-left: calc(16px + var(--sp-2));
   }
+
+  .detail-value address { font-style: normal; }
 
   .detail-link {
     color: var(--c-blue);

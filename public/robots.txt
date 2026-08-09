@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mundoferreterogt.com/sitemap-index.xml

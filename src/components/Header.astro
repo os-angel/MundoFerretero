@@ -97,13 +97,13 @@ const langUrls = { es: '/', en: '/en' };
   </div>
 
   <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Menú de navegación" aria-hidden="true">
-    <nav aria-label="Menú móvil">
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Menú de navegación móvil" aria-hidden="true">
+    <div>
       <a href={homeUrl} class="mobile-nav-link">{t.nav.home}</a>
       <a href="#productos" class="mobile-nav-link">{t.nav.products}</a>
       <a href="#envio" class="mobile-nav-link">{t.nav.services}</a>
       <a href="#contacto" class="mobile-nav-link">{t.nav.contact}</a>
-    </nav>
+    </div>
     <div class="mobile-lang">
       <a class={`lang-btn ${lang === 'es' ? 'lang-btn--active' : ''}`} href={langUrls.es} aria-label="Español" aria-current={lang === 'es' ? 'page' : undefined}>🇬🇹</a>
       <a class={`lang-btn ${lang === 'en' ? 'lang-btn--active' : ''}`} href={langUrls.en} aria-label="English" aria-current={lang === 'en' ? 'page' : undefined}>🇺🇸</a>
@@ -119,7 +119,7 @@ const langUrls = { es: '/', en: '/en' };
       </svg>
       {t.nav.whatsapp}
     </a>
-  </div>
+  </nav>
 </header>
 
 <script>

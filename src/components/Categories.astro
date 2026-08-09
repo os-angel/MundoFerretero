@@ -8,8 +8,6 @@ interface Props {
   categories: any[];
 }
 const { t, lang, categories } = Astro.props;
-const waMsg = encodeURIComponent(t.common.whatsapp_msg);
-const waUrl = `https://wa.me/${t.common.wa_number}?text=${waMsg}`;
 ---
 
 <section class="categories section" id="productos" aria-labelledby="categories-title">
@@ -27,8 +25,6 @@ const waUrl = `https://wa.me/${t.common.wa_number}?text=${waMsg}`;
         const name = cat.name[lang] ?? cat.name.es;
         const description = cat.description[lang] ?? cat.description.es;
         const imageAlt = cat.imageAlt[lang] ?? cat.imageAlt.es;
-        const catWaMsg = encodeURIComponent(`Hola Mundo Ferretero, quisiera consultar precios de: ${cat.name.es}`);
-        const catWaUrl = `https://wa.me/${t.common.wa_number}?text=${catWaMsg}`;
 
         return (
           <article class="category-item" role="listitem">
@@ -46,18 +42,6 @@ const waUrl = `https://wa.me/${t.common.wa_number}?text=${waMsg}`;
             <div class="category-body">
               <h3 class="category-name">{name}</h3>
               <p class="category-desc">{description}</p>
-              <a
-                href={catWaUrl}
-                class="category-cta"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Consultar precio de ${name} por WhatsApp`}
-              >
-                {t.categories.cta}
-                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-              </a>
             </div>
           </article>
         );
@@ -78,8 +62,6 @@ const waUrl = `https://wa.me/${t.common.wa_number}?text=${waMsg}`;
   .category-body { display: flex; flex: 1; flex-direction: column; align-items: flex-start; padding: var(--sp-4); }
   .category-name { color: var(--c-blue); font-size: var(--text-base); font-weight: 700; line-height: 1.25; }
   .category-desc { display: none; margin-top: var(--sp-2); color: var(--c-text-muted); font-size: var(--text-sm); line-height: 1.45; }
-  .category-cta { display: inline-flex; align-items: center; gap: var(--sp-2); margin-top: auto; padding-top: var(--sp-3); color: var(--c-orange-dark); font-size: var(--text-sm); font-weight: 700; }
-  .category-cta:hover, .category-cta:focus-visible { color: var(--c-blue); text-decoration: underline; text-underline-offset: 3px; }
   @media (min-width: 640px) { .categories-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sp-4); } .category-desc { display: block; } }
   @media (min-width: 1024px) { .categories-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } .category-body { padding: var(--sp-5); } }
 </style>

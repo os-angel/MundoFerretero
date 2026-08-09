@@ -4,9 +4,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import Categories from '../components/Categories.astro';
+import FeaturedPrices from '../components/FeaturedPrices.astro';
 import ShippingBlock from '../components/ShippingBlock.astro';
 import CtaBlock from '../components/CtaBlock.astro';
 import LocationContact from '../components/LocationContact.astro';
+import Faq from '../components/Faq.astro';
 import Footer from '../components/Footer.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
 
@@ -24,14 +26,17 @@ const categories = productsData.categories;
   title="Mundo Ferretero | Ferretería en Santiago Atitlán"
   description="Materiales para construcción en Santiago Atitlán. Cemento, block, tubería, sanitarios, poliducto y más. Consulta disponibilidad y servicio de envío."
   lang={lang}
+  products={categories.flatMap((category) => category.products)}
 >
   <Header t={t} lang={lang} />
 
   <main id="main-content">
     <Hero t={t} />
+    <FeaturedPrices categories={categories} lang={lang} waNumber={t.common.wa_number} />
     <Categories t={t} lang={lang} categories={categories} />
     <ShippingBlock t={t} />
     <CtaBlock t={t} />
+    <Faq lang={lang} address={t.location.address} hours={t.location.hours} phone={t.location.phone} />
     <LocationContact t={t} />
   </main>
 

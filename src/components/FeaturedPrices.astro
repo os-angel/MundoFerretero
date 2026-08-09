@@ -1,0 +1,61 @@
+---
+interface Props {
+  categories: any[];
+  lang: string;
+  waNumber: string;
+}
+
+const { categories, lang, waNumber } = Astro.props;
+const products = categories.flatMap((category) => category.products ?? []).filter((product) => product.price !== null);
+const copy = lang === 'en'
+  ? { title: 'Prices to get your project started', subtitle: 'Ask us about availability before your visit.', action: 'Ask on WhatsApp', from: 'From' }
+  : { title: 'Precios para tu proyecto', subtitle: 'Consulta disponibilidad antes de visitarnos.', action: 'Consultar por WhatsApp', from: 'Desde' };
+---
+
+<section class="featured-prices section" id="precios" aria-labelledby="prices-title">
+  <div class="container">
+    <div class="prices-heading">
+      <h2 class="section-title" id="prices-title">{copy.title}</h2>
+      <p class="section-subtitle">{copy.subtitle}</p>
+    </div>
+    <div class="prices-grid">
+      {products.map((product) => {
+        const name = product.name[lang] ?? product.name.es;
+        const description = product.description[lang] ?? product.description.es;
+        const message = encodeURIComponent(`Hola Mundo Ferretero, quisiera consultar disponibilidad de ${product.name.es}.`);
+        return (
+          <article class="price-item">
+            <img src={product.image} alt={name} width="320" height="240" loading="lazy" decoding="async" />
+            <div class="price-info">
+              <h3>{name}</h3>
+              <p>{description}</p>
+              <p class="product-price">
+                {(product.id === 'block-estandar' || product.id === 'sanitario-blanco') && <span>{copy.from} </span>}
+                Q{Number(product.price).toFixed(2)}
+                {product.unit && <small> / {product.unit}</small>}
+              </p>
+              <a href={`https://wa.me/${waNumber}?text=${message}`} target="_blank" rel="noopener noreferrer">{copy.action}</a>
+            </div>
+          </article>
+        );
+      })}
+    </div>
+  </div>
+</section>
+
+<style>
+  .featured-prices { background: var(--c-white); }
+  .prices-heading { margin-bottom: var(--sp-6); }
+  .prices-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--c-border); border-left: 1px solid var(--c-border); }
+  .price-item { min-width: 0; background: var(--c-white); border-right: 1px solid var(--c-border); border-bottom: 1px solid var(--c-border); }
+  .price-item img { width: 100%; aspect-ratio: 4 / 3; padding: var(--sp-3); object-fit: contain; background: var(--c-bg); }
+  .price-info { padding: var(--sp-4); }
+  .price-info h3 { color: var(--c-blue); font-size: var(--text-base); line-height: 1.25; }
+  .price-info > p:not(.product-price) { margin-top: var(--sp-1); color: var(--c-text-muted); font-size: var(--text-sm); line-height: 1.4; }
+  .product-price { margin-top: var(--sp-3); color: var(--c-orange-dark); font-size: var(--text-xl); font-weight: 700; line-height: 1; }
+  .product-price span, .product-price small { color: var(--c-text-muted); font-size: var(--text-xs); font-weight: 700; }
+  .price-info a { display: inline-block; margin-top: var(--sp-3); color: var(--c-blue); font-size: var(--text-sm); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+  .price-info a:hover, .price-info a:focus-visible { color: var(--c-orange-dark); }
+  @media (min-width: 640px) { .prices-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  @media (min-width: 1024px) { .prices-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+</style>

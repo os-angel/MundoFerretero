@@ -7,6 +7,7 @@ interface Props {
   description?: string;
   lang?: string;
   ogImage?: string;
+  products?: any[];
 }
 
 const {
@@ -14,17 +15,22 @@ const {
   description = 'Materiales para construcción en Santiago Atitlán. Cemento, block, tubería, sanitarios, poliducto y más. Consulta disponibilidad y servicio de envío.',
   lang = 'es',
   ogImage = '/logo.png',
+  products = [],
 } = Astro.props;
 
-const canonical = new URL(Astro.url.pathname, 'https://www.mundoferreterogt.com').href;
-const ogImageAbsolute = new URL(ogImage, 'https://www.mundoferreterogt.com').href;
+const siteUrl = 'https://mundoferreterogt.com';
+const canonical = new URL(Astro.url.pathname, siteUrl).href;
+const ogImageAbsolute = new URL(ogImage, siteUrl).href;
+const spanishUrl = new URL('/', siteUrl).href;
+const englishUrl = new URL('/en/', siteUrl).href;
 
-const schemaLD = {
+const businessSchema = {
   "@context": "https://schema.org",
   "@type": "HardwareStore",
   "name": "Mundo Ferretero",
   "description": "Ferretería y materiales de construcción en Santiago Atitlán, Sololá, Guatemala.",
-  "url": "https://www.mundoferreterogt.com",
+  "url": siteUrl,
+  "logo": new URL('/logo.png', siteUrl).href,
   "telephone": "+50239216866",
   "address": {
     "@type": "PostalAddress",
@@ -45,9 +51,27 @@ const schemaLD = {
       "opens": "08:00",
       "closes": "18:00"
     }
-  ],
-  "hasMap": "https://www.google.com/maps/place/Vista+del+Volc%C3%A1n/@14.6253949,-91.2335995,21z"
+  ]
 };
+
+const productSchemas = products
+  .filter((product) => product.price !== null && product.price !== undefined)
+  .map((product) => ({
+    "@type": "Product",
+    "name": product.name?.[lang] ?? product.name?.es,
+    "description": product.description?.[lang] ?? product.description?.es,
+    "image": product.image ? new URL(product.image, siteUrl).href : undefined,
+    "offers": {
+      "@type": "Offer",
+      "url": canonical,
+      "priceCurrency": "GTQ",
+      "price": String(product.price)
+    }
+  }));
+
+const schemaLD = productSchemas.length
+  ? { "@context": "https://schema.org", "@graph": [businessSchema, ...productSchemas] }
+  : businessSchema;
 ---
 <!doctype html>
 <html lang={lang}>
@@ -60,6 +84,9 @@ const schemaLD = {
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     <meta name="robots" content="index, follow" />
+    <link rel="alternate" hreflang="es-GT" href={spanishUrl} />
+    <link rel="alternate" hreflang="en" href={englishUrl} />
+    <link rel="alternate" hreflang="x-default" href={spanishUrl} />
 
     <!-- OpenGraph -->
     <meta property="og:type" content="website" />

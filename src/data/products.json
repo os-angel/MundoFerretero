@@ -28,7 +28,7 @@
             "en": "4060 PSI · 42.5 kg bag"
           },
           "image": "/images/products/cemento-ugc.png",
-          "price": null,
+          "price": 83,
           "priceOld": null,
           "unit": "saco",
           "featured": true,
@@ -46,7 +46,7 @@
             "en": "4060 PSI · 42.5 kg bag"
           },
           "image": "/images/products/cemento-obrero.png",
-          "price": null,
+          "price": 77,
           "priceOld": null,
           "unit": "saco",
           "featured": true,
@@ -64,7 +64,7 @@
             "en": "5200 PSI · 42.5 kg bag"
           },
           "image": "/images/products/cemento-internacional.png",
-          "price": null,
+          "price": 70,
           "priceOld": null,
           "unit": "saco",
           "featured": true,
@@ -101,9 +101,9 @@
             "en": "39 × 19 × 9 cm"
           },
           "image": "/images/products/block.jpg",
-          "price": null,
+          "price": 5.3,
           "priceOld": null,
-          "unit": "unidad",
+          "unit": "ciento",
           "featured": true,
           "onSale": false,
           "available": true
@@ -130,15 +130,15 @@
         {
           "id": "tubo-pvc",
           "name": {
-            "es": "Tubo PVC",
-            "en": "PVC Pipe"
+            "es": "Tubo drenaje 3\"",
+            "en": "3\" Drainage Pipe"
           },
           "description": {
-            "es": "Varios diámetros disponibles",
-            "en": "Various diameters available"
+            "es": "Tubo para drenaje",
+            "en": "Drainage pipe"
           },
           "image": "/images/products/tuberia.png",
-          "price": null,
+          "price": 65,
           "priceOld": null,
           "unit": "tubo",
           "featured": true,
@@ -207,11 +207,11 @@
             "en": "Black Polyethylene Pipe"
           },
           "description": {
-            "es": "Disponible en rollo",
-            "en": "Available in roll"
+            "es": "Poliducto 3/8\"",
+            "en": "3/8\" Polyethylene Pipe"
           },
           "image": "/images/products/poliducto.jpg",
-          "price": null,
+          "price": 18,
           "priceOld": null,
           "unit": "rollo",
           "featured": true,
@@ -248,7 +248,7 @@
             "en": "Various models available"
           },
           "image": "/images/products/sanitarios.jpg",
-          "price": null,
+          "price": 475,
           "priceOld": null,
           "unit": "pieza",
           "featured": true,
