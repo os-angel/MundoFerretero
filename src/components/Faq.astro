@@ -10,14 +10,14 @@ const { lang, address, hours, phone } = Astro.props;
 const isEnglish = lang === 'en';
 const faqs = isEnglish
   ? [
-      ['What does Mundo Ferretero sell?', 'Mundo Ferretero sells construction materials and hardware, including cement, block, PVC pipe, polyethylene pipe, bathroom fixtures, steel and accessories.'],
+      ['What does Mundo Ferretero sell?', 'Mundo Ferretero sells construction materials and hardware, including cement, block, PVC pipe, PVC conduit pipe, bathroom fixtures, steel and accessories.'],
       ['How can I check availability?', `Contact Mundo Ferretero by WhatsApp or call ${phone} to ask about availability and prices.`],
       ['Where is Mundo Ferretero located?', address],
       ['What are the business hours?', hours],
       ['Do you offer delivery?', 'Delivery availability can be consulted for Santiago Atitlán and nearby areas.']
     ]
   : [
-      ['¿Qué vende Mundo Ferretero?', 'Mundo Ferretero vende materiales para construcción y ferretería, incluyendo cemento, block, tubería PVC, poliducto, sanitarios, hierro y accesorios.'],
+      ['¿Qué vende Mundo Ferretero?', 'Mundo Ferretero vende materiales para construcción y ferretería, incluyendo cemento, block, tubería PVC, tubo ducto PVC, sanitarios, hierro y accesorios.'],
       ['¿Cómo consulto disponibilidad?', `Puedes contactar a Mundo Ferretero por WhatsApp o llamar al ${phone} para consultar precios y disponibilidad.`],
       ['¿Dónde se ubica Mundo Ferretero?', address],
       ['¿Cuál es el horario?', hours],

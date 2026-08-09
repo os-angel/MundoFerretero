@@ -187,30 +187,30 @@
       "id": "poliducto",
       "slug": "poliducto",
       "name": {
-        "es": "Poliducto",
-        "en": "Polyethylene Pipe"
+        "es": "Tubo ducto PVC",
+        "en": "PVC Conduit Pipe"
       },
       "description": {
-        "es": "Poliducto delgado de 3/8\" para instalaciones.",
-        "en": "Slim 3/8\" polyduct for installations."
+        "es": "Tubo ducto PVC naranja de 3/8\" para instalaciones.",
+        "en": "Orange 3/8\" PVC conduit pipe for installations."
       },
-      "image": "/images/products/tuberia.png",
+      "image": "/images/products/tubo-ducto-pvc-naranja.png",
       "imageAlt": {
-        "es": "Poliducto delgado de 3/8 pulgadas",
-        "en": "Slim 3/8-inch polyduct"
+        "es": "Tubo ducto PVC naranja de 3/8 pulgadas",
+        "en": "Orange 3/8-inch PVC conduit pipe"
       },
       "products": [
         {
           "id": "poliducto-rollo",
           "name": {
-            "es": "Poliducto 3/8\"",
-            "en": "3/8\" Polyduct"
+            "es": "Tubo ducto PVC naranja 3/8\"",
+            "en": "Orange 3/8\" PVC conduit pipe"
           },
           "description": {
-            "es": "Poliducto 3/8\"",
-            "en": "3/8\" Polyethylene Pipe"
+            "es": "Tubo ducto PVC naranja de 3/8\"",
+            "en": "Orange 3/8\" PVC conduit pipe"
           },
-          "image": "/images/products/tuberia.png",
+          "image": "/images/products/tubo-ducto-pvc-naranja.png",
           "price": 18,
           "priceOld": null,
           "unit": "rollo",
