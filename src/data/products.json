@@ -191,29 +191,29 @@
         "en": "PVC Conduit Pipe"
       },
       "description": {
-        "es": "Tubo ducto PVC naranja de 3/8\" para instalaciones.",
-        "en": "Orange 3/8\" PVC conduit pipe for installations."
+        "es": "Tubo rígido de PVC naranja de 3/8\" x 3 m para instalaciones eléctricas.",
+        "en": "Rigid orange 3/8\" x 3 m PVC conduit pipe for electrical installations."
       },
       "image": "/images/products/tubo-ducto-pvc-naranja.png",
       "imageAlt": {
-        "es": "Tubo ducto PVC naranja de 3/8 pulgadas",
-        "en": "Orange 3/8-inch PVC conduit pipe"
+        "es": "Tubo rígido ducto PVC naranja de 3/8 pulgadas",
+        "en": "Rigid orange 3/8-inch PVC conduit pipe"
       },
       "products": [
         {
           "id": "poliducto-rollo",
           "name": {
-            "es": "Tubo ducto PVC naranja 3/8\"",
-            "en": "Orange 3/8\" PVC conduit pipe"
+            "es": "Tubo ducto PVC naranja 3/8\" x 3 m",
+            "en": "Orange 3/8\" x 3 m PVC conduit pipe"
           },
           "description": {
-            "es": "Tubo ducto PVC naranja de 3/8\"",
-            "en": "Orange 3/8\" PVC conduit pipe"
+            "es": "Tubo rígido para alojar y proteger cables en instalaciones eléctricas.",
+            "en": "Rigid pipe for housing and protecting cables in electrical installations."
           },
           "image": "/images/products/tubo-ducto-pvc-naranja.png",
           "price": 18,
           "priceOld": null,
-          "unit": "rollo",
+          "unit": "tubo",
           "featured": true,
           "onSale": false,
           "available": true
